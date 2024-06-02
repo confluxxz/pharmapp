@@ -1,0 +1,53 @@
+{% load static %}
+
+
+<div class="card mb-3 text-bg-light shadow-lg">
+    {% for experiment in experiments %}
+    <div class="card-header">
+        <h5 class="card-title">{{ experiment.item.name }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="row text-center">
+                <div class="col p-0">
+                    <div class="input-group">
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-dark btn-sm decrement"
+                      data-cart-id="{{experiment.id}}"
+                      data-experiment-change-url="{% url "experiment:experiment_change" %}">
+                {% csrf_token %}
+                -</button>
+            </span>
+                        <input type="text" class="form-control number" value="{{ experiment.quantity }}" readonly>
+                        <span class="input-group-btn">
+            <button type="button" class="btn btn-dark btn-sm increment"
+                    data-experiment-id="{{experiment.id}}"
+                    data-experiment-change-url="{% url "experiment:experiment_change" %}">
+                            {% csrf_token %}
+                            +</button>
+            </span>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    <p>грамм</p>
+                </div>
+                <div class="col p-0"><strong>водный раствор</strong></div>
+                <div class="col p-0">
+                    <a href=" {% url "experiment:experiment_remove"%}" class="remove-from-experiment"
+                    data-experiment-id="{{experiment.id}}">
+                        {% csrf_token %}
+                    <img class="mx-1" src="{% static "deps/icons/trash3-fill.svg" %}" alt="Catalog Icon" width="16" height="16">
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    {% endfor %}
+
+</div>
+    <div class="card mb-3 shadow-lg">
+        <div class="card-footer">
+            <p class="float-left">Всего: <strong>{{experiments.total_quantity}}</strong> предметов на дату: </p>
+                <h4 class="float-left"><strong>У вас нет запланированных экспериментов </strong></h4>
+        </div>
+    </div>

@@ -1,0 +1,72 @@
+<!--{% block content %}-->
+<!--    <div class="container mt-5">-->
+<!--                        <div class="card mb-4 custom-shadow">-->
+<!--                            <div class="row">-->
+<!--                                &lt;!&ndash; Миниатюры &ndash;&gt;-->
+<!--                                <div class="col-md-4">-->
+<!--                                    {% if not item.image%}-->
+<!--                                    <img hidde="True"-->
+<!--                                        class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">-->
+
+<!--                                    {% else %}-->
+<!--                                    <img src="{{ item.image.url }}"-->
+<!--                                        class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">-->
+<!--                                    {% endif %}-->
+
+<!--                                </div>-->
+<!--                                <div class="col-md-4 ">-->
+
+<!--                                    <div class="crop"><img src="{% static "deps/images/ts.jpg" %}" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1"></div>-->
+<!--                                    <p class="product_id mt-3">ID: {{item.display_id}}</p>-->
+<!--                                </div>-->
+<!--                                &lt;!&ndash; Увеличить изображение в модальном окне &ndash;&gt;-->
+<!--                                <div class="modal fade" id="imageModal1" tabindex="-1"-->
+<!--                                    aria-labelledby="imageModal1Label" aria-hidden="true">-->
+<!--                                    <div class="modal-dialog modal-lg">-->
+<!--                                        <div class="modal-content">-->
+<!--                                            <div class="modal-header">-->
+<!--                                                <h5 class="modal-title" id="imageModal1Label">{{item.name}}</h5>-->
+<!--                                                <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+<!--                                                    aria-label="Закрыть"></button>-->
+<!--                                            </div>-->
+<!--                                            <div class="modal-body">-->
+<!--                                                {% if not item.image %}-->
+<!--                                                <img hidden="True"-->
+<!--                                        class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#imageModal1">-->
+<!--                                                {% else %}-->
+<!--                                                <img src="{{ item.image.url }}"-->
+<!--                                                    class="img-fluid" alt="Изображение 1">-->
+<!--                                                {% endif %}-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+
+<!--                            &lt;!&ndash; Описание товара &ndash;&gt;-->
+<!--                            <div class="card-body">-->
+<!--                                <div class="alert">-->
+<!--                                <h5 class="card-title">{{item.name}}</h5>-->
+<!--                                <p class="card-text">{{item.description}}</p>-->
+<!--                                <p class="card-text">Количество: <strong>{{item.quantity}}</strong></p>-->
+<!--                                <h5 class="card-title">Готовность к работе:</h5>-->
+
+<!--                                    <h6>Да</h6>-->
+<!--                                <h6>-->
+<!--                                    <a href="#" class="btn btn-outline-dark">Параметры проведения процесса:</a>-->
+<!--                                    <input type="text" placeholder="Давление, температура">-->
+<!--                                    <br>-->
+<!--                                    <br>-->
+<!--                                    <a href="#" class="btn btn-outline-dark">Дата бронирования оборудования:</a> <input type="date">-->
+<!--                                </h6>-->
+<!--                                <a href="{% url "experiment:experiment_add"%}" class="btn btn-dark add-to-experiment" data-item-id="{{item.id}}">-->
+
+<!--                                {% csrf_token %}-->
+<!--                                Добавить для экспериментов</a>-->
+<!--                                </div>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--{% endblock %}-->
